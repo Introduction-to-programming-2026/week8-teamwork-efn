@@ -4,4 +4,19 @@
 
 import csv
 
-# Your code here
+counts = {}
+
+with open("../part1/favorites.csv", "r") as file:
+    reader = csv.DictReader(file)
+    for row in reader:
+        language = row["language"]
+        if language in counts:
+            counts[language] += 1
+        else:
+            counts[language] = 1
+
+minimum = int(input("Minimum votes to display: "))
+
+for language in sorted(counts, key=counts.get, reverse=True):
+    if counts[language] >= minimum:
+        print(f"{language}: {counts[language]}")

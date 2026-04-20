@@ -9,7 +9,7 @@
 
 import csv
 
-with open("favorites.csv", "r") as file:
-    # TODO: Create a csv.DictReader (not csv.reader)
-    # TODO: Loop over rows and print row["language"]
-    pass
+with open("../favorites.csv", "r") as file:
+    reader = csv.DictReader(file)
+    for row in reader:
+        print(row["language"])

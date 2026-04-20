@@ -16,8 +16,5 @@ with open("../week1/favorites.csv", "r") as file:
         else:
             counts[favorite] = 1
 
-# TODO: Print counts sorted alphabetically by language name
-# Expected output:
-#   C: 40
-#   Python: 196
-#   Scratch: 28
+for favorite in sorted(counts):
+    print(f"{favorite}: {counts[favorite]}")
